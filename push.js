@@ -7,5 +7,5 @@ let vapidKeys = {
 
 push.setVapidDetails('mailto:hh@dynamicit.dk', vapidKeys.publicKey, vapidKeys.privateKey);
 
-let sub = {}
+let sub = {};
 push.sendNotification(sub,'Test besked');
