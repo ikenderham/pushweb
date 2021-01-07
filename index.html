@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="theme-color" content="#4dbaa8"/>
+    
+    <meta name="description" content="software"/>
+    <title>Document</title>
+    <link rel="manifest" href="manifest.json">
+    <script>
+        //service worker supported by browser
+        if ('serviceWorker' in navigator){
+            navigator.serviceWorker.register('sw.js');
+        };
+    </script>
+</head>
+<body>
+    <button onclick="subscribe()">Tilmeld dig</button>
+    <script>
+        addEventListener('load', async () =>{
+            let sw = await navigator.serviceWorker.register('sw.js')
+            console.log(sw)
+            });
+
+        async function subscribe(){
+            let sw = await navigator.serviceWorker.ready;
+            let push await sw.pushManager.subscribe({
+                userVisibleOnly: true;
+                applicationServerKey: 'BAUbMEbQ2BRgY1eY49yjZHEhIYfZXXw6hbFV1gqnWj0TI4iRRfNPWx6nKaIcpsvhXxe2LTuJGRrXt8sS6jFzWgc'
+            });
+            console.log(JSON.stringify(push));
+        }
+    </script>
+</body>
+</html>
